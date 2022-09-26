@@ -22,7 +22,7 @@ nft_name4 = "House4"
 description4 = "An other more different house"
 image4 = "https://pbs.twimg.com/media/FY2ZpDJXEAAQo8c.jpg"
 properties = {}
-
+# code to mint the NFTs
 nft_collection.mint(NFTMetadataInput.from_json({ "name": nft_name1, "description": description1, "image": image1}))
 nft_collection.mint(NFTMetadataInput.from_json({ "name": nft_name2, "description": description2, "image": image2}))
 nft_collection.mint(NFTMetadataInput.from_json({ "name": nft_name3, "description": description3, "image": image3}))
