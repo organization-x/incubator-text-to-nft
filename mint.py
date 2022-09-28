@@ -7,7 +7,7 @@ import os
 # variables to make implementing easier in future
 PRIVATE_KEY = "ce9d1adfe53816243b61ea86bc5a4776875dca38d90e51ca8af2539b3b026b1f"
 sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, "goerli")
-NFT_COLLECTION_ADDRESS = "0x78fA9B9C98240dd11F10a096846a5ba0cb51ab15"
+NFT_COLLECTION_ADDRESS = "0xd64753CCFbe521B96c211CEc3D0EA35AD7617E33"
 nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
 nft_name1 = "House1"
 description1 = "A house"
