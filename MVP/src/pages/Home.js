@@ -12,6 +12,9 @@ const Home = () => {
       </p>
       <ul>
         <li>
+          <Link to="/macbookpro14one">MacBookPro14One</Link>
+        </li>
+        <li>
           <Link to="/mvp">MVP</Link>
         </li>
       </ul>
