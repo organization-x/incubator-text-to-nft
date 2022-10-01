@@ -1,6 +1,6 @@
 import React from "react";
 import MVP from "pages/MVP";
-import MacBookPro14One from "pages/MacBookPro14One";
+import MacBookPro14One from "pages/Generation Page";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
