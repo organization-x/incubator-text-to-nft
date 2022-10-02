@@ -1,4 +1,6 @@
 
+print("HELLO WORLD")
+
 import getpass, os
 
 os.environ['STABILITY_KEY'] = getpass.getpass('sk-NoV3EGb9mmfF3ghsKNZahP0eULQlYS495IXmJLDI42PTrNH0')
