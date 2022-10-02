@@ -27,14 +27,14 @@ stability_api = client.StabilityInference(
 )
 
 user_input = input('What do you want Text to NFT to draw? ')
-imgs_input = input("How many images would you like")
+imgs_input = input("How many images would you like? ")
 image_text_generator = user_input
 now = datetime.now()
 
 
 
 #generate object returned is a python generator
-for i in range(imgs_input):
+for i in range(int(imgs_input)):
     answers = stability_api.generate(
         prompt = image_text_generator,
         seed = random.randrange(0, 99999)
