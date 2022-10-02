@@ -1,6 +1,3 @@
-
-print("HELLO WORLD")
-
 import getpass, os
 
 os.environ['STABILITY_KEY'] = getpass.getpass('REDACTED')
@@ -51,4 +48,4 @@ for i in range(imgs_input):
                 #if image passes filter it will display
                 if artifact.type == generation.ARTIFACT_IMAGE:
                     img = Image.open(io.BytesIO(artifact.binary))
-                    img.save("img" + i + "-" + user_input + "-" + now)
+                    img.save("img" + i + "-" + user_input + "-" + now + ".png")
