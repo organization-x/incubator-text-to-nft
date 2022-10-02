@@ -19,6 +19,8 @@ from stability_sdk import client
 import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
 #used for the seed to have different results
 import random
+#used to get current date and time
+from datetime import datetime
 
 #authentication
 stability_api = client.StabilityInference(
@@ -28,10 +30,14 @@ stability_api = client.StabilityInference(
 )
 
 user_input = input('What do you want Text to NFT to draw? ')
+imgs_input = input("How many images would you like")
 image_text_generator = user_input
+now = datetime.now()
+
+
 
 #generate object returned is a python generator
-for i in range(1):
+for i in range(imgs_input):
     answers = stability_api.generate(
         prompt = image_text_generator,
         seed = random.randrange(0, 99999)
@@ -45,5 +51,4 @@ for i in range(1):
                 #if image passes filter it will display
                 if artifact.type == generation.ARTIFACT_IMAGE:
                     img = Image.open(io.BytesIO(artifact.binary))
-                    display(img)
-    img.show()
+                    img.save("img" + i + "-" + user_input + "-" + now)
