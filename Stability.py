@@ -1,4 +1,3 @@
-!pip install stability-sdk -q
 
 import getpass, os
 
@@ -30,7 +29,7 @@ user_input = input('What do you want Text to NFT to draw? ')
 image_text_generator = user_input
 
 #generate object returned is a python generator
-for i in range(5):
+for i in range(1):
     answers = stability_api.generate(
         prompt = image_text_generator,
         seed = random.randrange(0, 99999)
@@ -45,3 +44,4 @@ for i in range(5):
                 if artifact.type == generation.ARTIFACT_IMAGE:
                     img = Image.open(io.BytesIO(artifact.binary))
                     display(img)
+    img.show()
