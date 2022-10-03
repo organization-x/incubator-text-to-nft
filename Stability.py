@@ -1,6 +1,6 @@
 import getpass, os
 
-os.environ['STABILITY_KEY'] = getpass.getpass('sk-dsHduyUUkUhQVvLzrAQPKTbI3ykVp824xtTJymuKaqxHx0Rf')
+os.environ['STABILITY_KEY'] = getpass.getpass('sk-xombRQXFgoYkU1l7W4h6XkMwOHm1bg5gfMZgd0Tkn4LgM6UI')
 
 #makes your job easier
 import io
