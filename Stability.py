@@ -48,9 +48,7 @@ for i in range(int(imgs_input)):
                 #if image passes filter it will display
                 if artifact.type == generation.ARTIFACT_IMAGE:
                     img = Image.open(io.BytesIO(artifact.binary))
-<<<<<<< HEAD
+
                     # img.save("img" + str(i) + "-" + user_input + "-" + str(now) + ".png")
-                    img.save("testImage.png")
-=======
                     img.save("img" + str(i) + "-" + user_input + "-" + str(now) + ".png")
->>>>>>> accd788b21f56292d97c30b4b1dbc3ed81cceee4
+
