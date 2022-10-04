@@ -47,5 +47,5 @@ for i in range(int(imgs_input)):
                     warnings.warn("Your request activated the API's satey filters and could not be process, change it and try again")
                 #if image passes filter it will display
                 if artifact.type == generation.ARTIFACT_IMAGE:
-                    img = Image.open(io.BytesIO(artifact.binary))
+                    # img = Image.open(io.BytesIO(artifact.binary))
                     img.save("img" + str(i) + "-" + user_input + "-" + str(now) + ".png")
