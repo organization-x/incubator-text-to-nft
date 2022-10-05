@@ -38,9 +38,9 @@ image_text_generator = user_input
 now = datetime.now()
 
 # variables to make implementing easier in future
-PRIVATE_KEY = "ce9d1adfe53816243b61ea86bc5a4776875dca38d90e51ca8af2539b3b026b1f"
+PRIVATE_KEY = "2d69642fc9b97c1db045b87b4b0f865251caa1c3737b052a08b395a6f0e62ce4"
 sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, "goerli")
-NFT_COLLECTION_ADDRESS = "0xd64753CCFbe521B96c211CEc3D0EA35AD7617E33"
+NFT_COLLECTION_ADDRESS = "0xda8E1288395bfCb615e1a98D410d033D8AF3164D"
 nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
 
 #generate object returned is a python generator
@@ -62,8 +62,10 @@ for i in range(int(imgs_input)):
 
     nft_name1 = user_input
     description1 = user_input
+    # image1 = "https://storage.cloud.google.com/imagehostingtext-to-nft/img0-An%20astronaut%20riding%20a%20horse%20in%20a%20photorealistic%20style-2022-10-05%2000%3A35%3A46.062437.png"
     image1 = "img" + str(i) + "-" + user_input + "-" + str(now) + ".png"
     nft_collection.mint(NFTMetadataInput.from_json({ "name": nft_name1, "description": description1, "image": image1}))
+    print("Image Minted")
 
 '''
 nft_name2 = "House2"
