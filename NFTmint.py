@@ -12,6 +12,13 @@ from stability_sdk import client
 import stability_sdk.interfaces.gooseai.generation.generation_pb2 as generation
 import random
 from datetime import datetime
+import google.cloud.storage
+
+def uploadFileToBucket(serviceAcctFile, bucket_name, blob_name, fileToUpload):
+    storage_client = google.cloud.storage.Client.from_service_account_json(serviceAcctFile)
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(blob_name)
+    blob.upload_from_filename(fileToUpload)
 
 
 load_dotenv()
@@ -36,6 +43,12 @@ NFT_COLLECTION_ADDRESS = os.getenv("NFT_COLLECTION_ADDRESS")
 sdk = ThirdwebSDK.from_private_key(ETH_WALLET_PRIVATE_KEY, "goerli")
 nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
 
+# GCP Bucket File Upload Variables
+service_acct_json_file = "incubatorfall22-8b3c8b5dd652.json"
+bucket_name = "publicimagebucket"
+# SERVICE_ACCT_JSON_FILE = os.getenv("SERVICE_ACCT_JSON_FILE")
+# BUCKET_NAME = os.getenv("BUCKET_NAME")
+
 # Dhruv's private key: 548d987e883fd3c9cb861a893e430b48145d0344c68a92c1a137420cffc1c002
 # Dhruv's collection address: 0xB789Db80d12d28586564a1d2a42eE679f47b2eeB
 # Adi's private key: 2d69642fc9b97c1db045b87b4b0f865251caa1c3737b052a08b395a6f0e62ce4
@@ -56,9 +69,11 @@ for i in range(int(numImgs)):
                 if artifact.type == generation.ARTIFACT_IMAGE:
                     img = Image.open(io.BytesIO(artifact.binary))
                     img.save(f"({str(i+1)}){prompt}.png")
-
-    nft_name = f"({str(i+1)}){prompt}"
-    description = "n/a"
+    
+    imgName = f"({str(i+1)}){prompt}"
     imgPath = f"({str(i+1)}){prompt}.png"
-    nft_collection.mint(NFTMetadataInput.from_json({ "name": nft_name, "description": description, "image": imgPath}))
+    uploadFileToBucket(service_acct_json_file, bucket_name, imgName, imgPath)
+    description = "n/a"
+    
+    nft_collection.mint(NFTMetadataInput.from_json({ "name": imgName, "description": description, "image": imgPath}))
 
