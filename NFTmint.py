@@ -60,4 +60,3 @@ for i in range(int(numImgs)):
     
     # Mints image url to collection address
     nft_collection.mint(NFTMetadataInput.from_json({ "name": imgName, "description": description, "image": imgUrlWithoutSpaces}))
-
