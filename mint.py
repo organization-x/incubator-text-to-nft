@@ -5,9 +5,9 @@ from dotenv import load_dotenv
 from web3 import Web3
 import os
 
-PRIVATE_KEY = "42043e207a156db948cd8d7fcc8133d153898b31db5b33e9c3c558ebeba31103"
+PRIVATE_KEY = "REDACTED"
 sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, "goerli")
-NFT_COLLECTION_ADDRESS = "0x9943130Ba2075739B0e005EACC4e05AfF9374c3B"
+NFT_COLLECTION_ADDRESS = "REDACTED"
 nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
 nft_name1 = "House1"
 description1 = "A house"
