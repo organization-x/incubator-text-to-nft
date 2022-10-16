@@ -37,6 +37,8 @@ const MVPPage = () => {
           />
           </span>
           <Stack className="lg:h-[51px] xl:h-[58px] 2xl:h-[65px] 3xl:h-[78px] xl:mt-[103px] 2xl:mt-[116px] 3xl:mt-[139px] lg:mt-[90px] w-[40%]">
+          <form action="../../post" method="post" 
+              className="form">
             <button id="connect" onClick={alert}>
             <Stack className="absolute lg:h-[51px] xl:h-[58px] 2xl:h-[65px] 3xl:h-[78px] w-[100%]" style={{'top':'1%'}}>
               <div className="absolute bg-bluegray_800 lg:h-[51px] xl:h-[58px] 2xl:h-[65px] 3xl:h-[78px] inset-x-[13%] w-[74%]"></div>
@@ -47,7 +49,7 @@ const MVPPage = () => {
               Connect
             </Text>
             </button>
-            
+            </form>
           </Stack>
         </Column>
       </Column>
