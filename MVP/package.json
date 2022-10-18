@@ -2,7 +2,7 @@
   "name": "figma-react-boilerplate",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://66.214.168.43:4500",
+  "proxy": "localhost:4500",
   "dependencies": {
     "@tailwindcss/forms": "0.4.0",
     "@testing-library/jest-dom": "^5.15.1",
