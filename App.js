@@ -6,9 +6,9 @@ const port = 4500;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   console.log(`Server running at http://${hostname}:${port}/`);
-  PythonShell.run('mint.py', null, function (err) {
-    if (err) throw err;
-    console.log('finished');
+//   PythonShell.run('mint.py', null, function (err) {
+//     if (err) throw err;
+//     console.log('finished');
   });
   
 });
