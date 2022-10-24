@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
 //   PythonShell.run('mint.py', null, function (err) {
 //     if (err) throw err;
 //     console.log('finished');
-  });
+//   });
   
 });
 
