@@ -1,18 +1,26 @@
+const express = require('express');
 const http = require('http');
 const {PythonShell} =require('python-shell');
-const hostname = '127.0.0.1';
+const {middleware} =require('connect');
+const hostname = 'localhost';
+const app = express();
 const port = 4500;
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  console.log(`Server running at http://${hostname}:${port}/`);
-//   PythonShell.run('mint.py', null, function (err) {
-//     if (err) throw err;
-//     console.log('finished');
-//   });
+   // PythonShell.run('mint.py', null, function (err) {
+  //   if (err) throw err;
+  //   console.log('finished');
+  // });
+  console.log(`Prior to post`);
+  app.use(express.json());
+app.use(express.urlencoded());
+app.post('/post', function(req, res) {
+  console.log("works");
+  var name = req.body
+  console.log(name);
   
 });
-
+});
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
