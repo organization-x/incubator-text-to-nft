@@ -11,7 +11,7 @@ const MVPPage = () => {
           NAME
         </Text>
         <Text className="font-normal lg:mt-[100px] xl:mt-[115px] 2xl:mt-[129px] 3xl:mt-[155px] not-italic lg:text-[17px] xl:text-[20px] 2xl:text-[22px] 3xl:text-[27px] text-white_A700 w-[auto]">
-          Wallet Address
+          Contract Address
         </Text>
           <Column className="items-center lg:mb-[138px] xl:mb-[158px] 2xl:mb-[178px] 3xl:mb-[213px] lg:mt-[36px] xl:mt-[41px] 2xl:mt-[46px] 3xl:mt-[56px] w-[46%]">
           <span id="AddressPrompt" style={{'position': 'relative'}}>
