@@ -1,7 +1,7 @@
 {
   "name": "figma-react-boilerplate",
   "version": "0.1.0",
-  "private": true,
+  "hompage": ".",
   "proxy": "http://localhost:8000/",
   "dependencies": {
     "@tailwindcss/forms": "0.4.0",

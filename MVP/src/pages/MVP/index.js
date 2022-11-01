@@ -4,7 +4,7 @@ import { Column, Text, Img, Stack } from "components";
 const MVPPage = () => {
   return (
     <>
-    <form action="/Walletpost" method="post" 
+    <form action="/api" method="post" 
               className="form">
       <Column className="bg-gray_900 font-inter items-center mx-[auto] lg:p-[22px] xl:p-[25px] 2xl:p-[28px] 3xl:p-[34px] w-[100%]">
         <Text className="font-normal not-italic lg:text-[35px] xl:text-[40px] 2xl:text-[45px] 3xl:text-[54px] text-white_A700 w-[auto]">
