@@ -1,7 +1,7 @@
 //Import express.js module and create its variable.
 const express=require('express');
 const app=express();
-
+const cors = require('cors')
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -10,15 +10,15 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
-
+app.use(cors())
 //Import PythonShell module.
 const {PythonShell} =require('python-shell');
-app.post("/Promptpost", (req, res, next)=>{
-  console.log("POST REQUEST");
+app.post("/api", (req, res, next)=>{
+  console.log("POST REQUEST Received");
   // console.log(req.body);
-  promptforsys = req.body.prompt;
+  promptforsys = req.body;
   console.log(promptforsys);
-
+  console.log("backend called");
   // let options = {
   //     mode: 'text',
   //     pythonOptions: ['-u'], // get print results in real-time
@@ -53,6 +53,34 @@ app.post("/Walletpost", (req, res, next)=>{
     // We will have to respond with the URL of the generated image.
     res.redirect("/MVP")
 });
+
+app.get("/get", (req, res, next)=>{
+    console.log(" GET REQUEST RECEIVED");
+    // We will have to respond with the URL of the generated image.
+});
+
+app.post("/Promptpost", (req, res, next)=>{
+  // console.log(req.body);
+    addressforsys = req.body.address;
+    keyforsys = req.body.key;
+  promptforsys = req.body.prompt;
+  console.log(promptforsys);
+  console.log("backend called with the prompt");
+  
+    let options = {
+        mode: 'text',
+        pythonOptions: ['-u'], // get print results in real-time
+        // scriptPath: '/Users/adityav/Downloads/GitHub/incubator-text-to-nft/mint.py', //If you are having py>
+        args: [addressforsys, promptforsys, keyforsys] //An argument which can be accessed in the script using>
+    };
+
+    PythonShell.run('NFTMint.py', options, function (err, result){
+          if (err) throw err;
+    });
+  console.log("Miniting process completed!");
+  res.redirect("/MVP")
+});
+
 
 //Creates the server on default port 8000 and can be accessed through localhost:8000
 const port= process.env.PORT || 8000;
