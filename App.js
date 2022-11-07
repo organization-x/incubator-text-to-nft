@@ -18,6 +18,7 @@ app.post("/Promptpost", (req, res, next)=>{
   // console.log(req.body);
   promptforsys = req.body.prompt;
   console.log(promptforsys);
+  numberforsys = req.body.number;
 
   // let options = {
   //     mode: 'text',
@@ -44,7 +45,7 @@ app.post("/Walletpost", (req, res, next)=>{
         mode: 'text',
         pythonOptions: ['-u'], // get print results in real-time
         // scriptPath: '/Users/adityav/Downloads/GitHub/incubator-text-to-nft/mint.py', //If you are having python_test.py script in same folder, then it's optional.
-        args: [addressforsys, promptforsys, keyforsys] //An argument which can be accessed in the script using sys.argv[1]
+        args: [addressforsys, promptforsys, keyforsys, numberforsys] //An argument which can be accessed in the script using sys.argv[1]
     };
 
     PythonShell.run('NFTMint.py', options, function (err, result){
