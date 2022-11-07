@@ -21,14 +21,19 @@ def uploadFileToBucket(serviceAcctFile, bucket_name, blob_name, fileToUpload):
     blob.upload_from_filename(fileToUpload)
 RPC_URL = "https://rpc.testnet.fantom.network/"
 ETH_WALLET_PRIVATE_KEY = "0000000000000000000000000000000000000000000000000000000000000000"
-DREAM_STUDIO_API_KEY = os.getenv("DREAM_STUDIO_API_KEY")
+#ETH_WALLET_PRIVATE_KEY = "0c52d46cf6f6bedd7865fecdd185eea453efb0494f2719a12d9f289cc7166df7"
+#DREAM_STUDIO_API_KEY = os.getenv("DREAM_STUDIO_API_KEY")
+DREAM_STUDIO_API_KEY = "sk-Ep1Ju1Ie4M8d9XneyIuGSfyCwthY8rrw9y18oKBpisaBaRJQ"
 URL_BEGINNING = "https://storage.googleapis.com/"
 ETH_WALLET_PRIVATE_KEY = sys.argv[3]
 NFT_COLLECTION_ADDRESS = sys.argv[1]
+#NFT_COLLECTION_ADDRESS = "0x69d17EaEE03765a037BBc53Bebfd659597DBA3A9"
 sdk = ThirdwebSDK.from_private_key(ETH_WALLET_PRIVATE_KEY, RPC_URL)
 nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
-SERVICE_ACCT_JSON_FILE = os.getenv("SERVICE_ACCT_JSON_FILE")
-BUCKET_NAME = os.getenv("BUCKET_NAME")
+#SERVICE_ACCT_JSON_FILE = os.getenv("SERVICE_ACCT_JSON_FILE")
+SERVICE_ACCT_JSON_FILE = "incubatorfall22-5f64250f70f5.json"
+#BUCKET_NAME = os.getenv("BUCKET_NAME")
+BUCKET_NAME = "publicimagebucket"
 
 stability_api = client.StabilityInference(key = DREAM_STUDIO_API_KEY, verbose=True,)
 
@@ -62,3 +67,4 @@ for i in range(int(numImgs)):
     
     # Mints image url to collection address
     nft_collection.mint(NFTMetadataInput.from_json({ "name": imgName, "description": prompt, "image": imgUrlWithoutSpaces}))
+    print("From Python Minted Sucessfully!")

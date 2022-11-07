@@ -13,7 +13,7 @@ app.use(express.urlencoded()); // to support URL-encoded bodies
 app.use(cors())
 //Import PythonShell module.
 const {PythonShell} =require('python-shell');
-app.post("/api", (req, res, next)=>{
+app.post("/api_old", (req, res, next)=>{
   console.log("POST REQUEST Received");
   // console.log(req.body);
   promptforsys = req.body;
@@ -32,14 +32,14 @@ app.post("/api", (req, res, next)=>{
   // We will have to respond with the URL of the generated image.
   res.redirect("/MVP")
 });
-app.post("/Walletpost", (req, res, next)=>{
-    console.log("POST REQUEST");
+app.post("/api", (req, res, next)=>{
+    console.log("POST REQUEST in api");
     // console.log(req.body);
     addressforsys = req.body.address;
     keyforsys = req.body.key;
     console.log(addressforsys);
     console.log(keyforsys);
-
+    console.log(promptforsys)
     let options = {
         mode: 'text',
         pythonOptions: ['-u'], // get print results in real-time
@@ -50,6 +50,7 @@ app.post("/Walletpost", (req, res, next)=>{
     PythonShell.run('NFTMint.py', options, function (err, result){
           if (err) throw err;
     });
+	console.log("Python script called!")
     // We will have to respond with the URL of the generated image.
     res.redirect("/MVP")
 });
@@ -64,20 +65,20 @@ app.post("/Promptpost", (req, res, next)=>{
     addressforsys = req.body.address;
     keyforsys = req.body.key;
   promptforsys = req.body.prompt;
-  console.log(promptforsys);
+  console.log(promptforsys, keyforsys, addressforsys);
   console.log("backend called with the prompt");
   
-    let options = {
-        mode: 'text',
-        pythonOptions: ['-u'], // get print results in real-time
+//    let options = {
+//        mode: 'text',
+//        pythonOptions: ['-u'], // get print results in real-time
         // scriptPath: '/Users/adityav/Downloads/GitHub/incubator-text-to-nft/mint.py', //If you are having py>
-        args: [addressforsys, promptforsys, keyforsys] //An argument which can be accessed in the script using>
-    };
+//        args: [addressforsys, promptforsys, keyforsys] //An argument which can be accessed in the script using>
+//    };
 
-    PythonShell.run('NFTMint.py', options, function (err, result){
-          if (err) throw err;
-    });
-  console.log("Miniting process completed!");
+ //   PythonShell.run('NFTMint.py', options, function (err, result){
+ //         if (err) throw err;
+ //   });
+  console.log("Redirecting to MVP page");
   res.redirect("/MVP")
 });
 
