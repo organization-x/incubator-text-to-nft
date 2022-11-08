@@ -6,6 +6,23 @@ Our Text to NFT product is one that allows users create a collection of NFTs usi
 
 <h3>How To Run Our Product:</h3> 
 
+**1. Pip Install Necessary Modules and packages:**
+
+
+    - Pip
+    - Python
+    - All necessary packages for NFTmint.py 
+    - node
+    - npm
+
+
+**2. Add stability key:** Either create a variable in the NFTmint.py script or create an environment variable.
+
+**3. Commands for hosting:**
+   Now that we have installed all the necessary modules and packages, it is now time to host the website. The following are the commands to host:
+   - Hosting Frontend: cd <into the MVP directory → npm install → npm start
+   - Hosting Backend: npm install → node App.js
+
 
 <h3>Try Our Product:</h3>   
 http://34.125.177.110
