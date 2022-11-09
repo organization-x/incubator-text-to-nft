@@ -34,7 +34,7 @@ BUCKET_NAME = os.getenv("BUCKET_NAME")
 stability_api = client.StabilityInference(key = DREAM_STUDIO_API_KEY, verbose=True,)
 
 prompt = sys.argv[2]
-numImgs = "1"
+numImgs = sys.argv[4]
 
 #generate object returned is a python generator
 for i in range(int(numImgs)):

@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
 let promptforsys: any = "";
+let numberforsys: any = 0;
 const RPC_URL = "https://rpc.testnet.fantom.network/"
 let contractAddress: any;
 //Import PythonShell module.
@@ -22,6 +23,9 @@ app.post("/Promptpost", (req :any, res :any, next :any)=>{
   // console.log(req.body);
   let promptforsys: any = req.body.prompt;
   console.log(promptforsys);
+  let numberforsys: any = req.body.number;
+  console.log(numberforsys);
+
 
   // let options = {
   //     mode: 'text',
@@ -71,7 +75,7 @@ app.post("/Walletpost", (req :any, res :any, next :any)=>{
         mode: 'text',
         pythonOptions: ['-u'], // get print results in real-time
         // scriptPath: '/Users/adityav/Downloads/GitHub/incubator-text-to-nft/mint.py', //If you are having python_test.py script in same folder, then it's optional.
-        args: [contractAddress, promptforsys, keyforsys] //An argument which can be accessed in the script using sys.argv[1]
+        args: [contractAddress, promptforsys, keyforsys, numberforsys] //An argument which can be accessed in the script using sys.argv[1]
     };
 
     PythonShell.run('NFTMint.py', options, function (err :any, result :any){
