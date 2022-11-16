@@ -1,4 +1,4 @@
-﻿﻿# incubator-text-to-nft
+# incubator-text-to-nft
 
 <h3>Introduction:</h3> 
 
