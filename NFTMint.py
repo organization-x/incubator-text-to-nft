@@ -20,6 +20,7 @@ def uploadFileToBucket(serviceAcctFile, bucket_name, blob_name, fileToUpload):
     blob = bucket.blob(blob_name)
     blob.upload_from_filename(fileToUpload)
 RPC_URL = "https://rpc.testnet.fantom.network/"
+NFT_COLLECTION_ADDRESS = "00000000000000000000000000000000"
 ETH_WALLET_PRIVATE_KEY = "0000000000000000000000000000000000000000000000000000000000000000"
 DREAM_STUDIO_API_KEY = os.getenv("DREAM_STUDIO_API_KEY")
 URL_BEGINNING = "https://storage.googleapis.com/"
