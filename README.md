@@ -27,5 +27,3 @@ Our Text to NFT product is one that allows users create a collection of NFTs usi
    - Backend: `npm install` → `node App.js`
 
 
-<h3>Try Our Product:</h3>   
-http://34.125.177.110
